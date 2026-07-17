@@ -12,6 +12,8 @@ import {
   Smartphone,
   Workflow
 } from "lucide-react";
+import { createRoot } from "react-dom/client";
+import "./styles.css";
 
 const capabilities = [
   {
@@ -44,7 +46,7 @@ const timeline = [
   "Record result, failure reason, and the next safe action."
 ];
 
-export default function Page() {
+function App() {
   return (
     <main>
       <section className="hero">
@@ -152,3 +154,6 @@ export default function Page() {
     </main>
   );
 }
+
+const root = createRoot(document.getElementById("root") as HTMLElement);
+root.render(<App />);
