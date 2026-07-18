@@ -1,9 +1,12 @@
 import {
   Activity,
   Bot,
+  BriefcaseBusiness,
   CheckCircle2,
   Eye,
   Fingerprint,
+  HandCoins,
+  HeartHandshake,
   LockKeyhole,
   MousePointer2,
   Radio,
@@ -46,6 +49,24 @@ const timeline = [
   "Record result, failure reason, and the next safe action."
 ];
 
+const supportPaths = [
+  {
+    icon: <HeartHandshake />,
+    title: "Sponsor development",
+    text: "Back local-first agent research, mobile verification, safe remote updates, and the public demo roadmap."
+  },
+  {
+    icon: <BriefcaseBusiness />,
+    title: "Private setup services",
+    text: "Fund Aurelia by commissioning supervised setup, workflow design, device automation mapping, and safety testing."
+  },
+  {
+    icon: <HandCoins />,
+    title: "Pilot partnerships",
+    text: "Support focused pilots for small businesses that need visible Android/PC task automation with human validation."
+  }
+];
+
 function App() {
   return (
     <main>
@@ -61,6 +82,9 @@ function App() {
           <div className="heroActions">
             <a href="#demo" className="primaryAction">
               View demo flow
+            </a>
+            <a href="#support" className="secondaryAction">
+              Support development
             </a>
             <a href="#safety" className="secondaryAction">
               Safety model
@@ -149,6 +173,41 @@ function App() {
           <span><Route /> AIP action plans</span>
           <span><CheckCircle2 /> Verified update messages</span>
           <span><ShieldCheck /> Local-first policy engine</span>
+        </div>
+      </section>
+
+      <section className="support" id="support">
+        <div className="sectionHeader">
+          <p className="eyebrow">Development fund</p>
+          <h2>Help turn Aurelia into a dependable agent platform</h2>
+          <p>
+            Aurelia is being developed as a private, safety-first automation
+            system. Funding goes toward verified mobile builds, remote update
+            infrastructure, feedback intake, UX refinement, and documented
+            pilot workflows.
+          </p>
+        </div>
+        <div className="supportGrid">
+          {supportPaths.map((path) => (
+            <article className="supportPath" key={path.title}>
+              <div className="iconWrap">{path.icon}</div>
+              <h3>{path.title}</h3>
+              <p>{path.text}</p>
+            </article>
+          ))}
+        </div>
+        <div className="supportPanel">
+          <div>
+            <h3>Current funding goal</h3>
+            <p>
+              Build a repeatable private-alpha program: clear onboarding,
+              safety checks, support tiers, public progress updates, and a
+              feedback-to-backlog loop that keeps the project moving.
+            </p>
+          </div>
+          <a href="mailto:legacycreator@protonmail.com?subject=Aurelia%20support%20or%20pilot" className="primaryAction">
+            Contact about support
+          </a>
         </div>
       </section>
     </main>
