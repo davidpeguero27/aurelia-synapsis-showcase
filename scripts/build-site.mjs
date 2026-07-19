@@ -29,6 +29,9 @@ const js = readFileSync(`dist/assets/${jsFile}`, "utf8");
 const pngBase64 = readFileSync(
   "dist/aurelia-mobile-redesign-final.png"
 ).toString("base64");
+const paypalQrBase64 = readFileSync(
+  "dist/aurelia-paypal-qr.png"
+).toString("base64");
 
 writeFileSync(
   "dist/server/index.js",
@@ -36,6 +39,7 @@ writeFileSync(
 const css = ${JSON.stringify(css)};
 const js = ${JSON.stringify(js)};
 const pngBase64 = ${JSON.stringify(pngBase64)};
+const paypalQrBase64 = ${JSON.stringify(paypalQrBase64)};
 const cssPath = "/assets/${cssFile}";
 const jsPath = "/assets/${jsFile}";
 
@@ -63,6 +67,11 @@ export default {
     }
     if (url.pathname === "/aurelia-mobile-redesign-final.png") {
       return new Response(decodeBase64(pngBase64), {
+        headers: { "content-type": "image/png" }
+      });
+    }
+    if (url.pathname === "/aurelia-paypal-qr.png") {
+      return new Response(decodeBase64(paypalQrBase64), {
         headers: { "content-type": "image/png" }
       });
     }
