@@ -207,7 +207,7 @@ function App() {
           </div>
           <div className="supportActions">
             <img
-              src="./aurelia-paypal-qr.png"
+              src="./aurelia-paypal-qr.png?v=1"
               alt="PayPal QR code to support Aurelia development"
               className="paypalQr"
             />
