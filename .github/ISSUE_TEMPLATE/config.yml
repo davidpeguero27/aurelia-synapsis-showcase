@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Aurelia ideas and questions
+    url: https://github.com/davidpeguero27/aurelia-synapsis-showcase/discussions
+    about: Share an idea, ask a question, or suggest a safe use case.
+  - name: Live Aurelia showcase
+    url: https://davidpeguero27.github.io/aurelia-synapsis-showcase/
+    about: Explore the public demo before opening an issue.
