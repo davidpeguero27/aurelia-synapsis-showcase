@@ -205,9 +205,27 @@ function App() {
               feedback-to-backlog loop that keeps the project moving.
             </p>
           </div>
-          <a href="mailto:legacycreator@protonmail.com?subject=Aurelia%20support%20or%20pilot" className="primaryAction">
-            Contact about support
-          </a>
+          <div className="supportActions">
+            <img
+              src="./aurelia-paypal-qr.png"
+              alt="PayPal QR code to support Aurelia development"
+              className="paypalQr"
+            />
+            <a
+              href="https://www.paypal.com/qrcodes/managed/c9c78910-7802-4090-9c34-a0ac2ef55026?utm_source=aurelia_showcase"
+              className="primaryAction"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open with PayPal
+            </a>
+            <a
+              href="mailto:legacycreator@protonmail.com?subject=Aurelia%20support%20or%20pilot"
+              className="secondaryAction"
+            >
+              Contact about a pilot
+            </a>
+          </div>
         </div>
       </section>
     </main>

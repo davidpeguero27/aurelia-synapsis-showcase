@@ -325,6 +325,21 @@ h3 {
   max-width: 860px;
 }
 
+.supportActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 260px;
+}
+
+.paypalQr {
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 1;
+  border: 8px solid #ffffff;
+  border-radius: 8px;
+}
+
 @media (max-width: 920px) {
   .hero,
   .split {
@@ -354,6 +369,11 @@ h3 {
 
   .supportPanel {
     grid-template-columns: 1fr;
+  }
+
+  .supportActions {
+    align-items: stretch;
+    flex-direction: column;
   }
 }
 

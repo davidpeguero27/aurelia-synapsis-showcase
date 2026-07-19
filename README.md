@@ -53,6 +53,9 @@ with OpenAI or any other model or platform provider.
 
 ## Contact
 
+Support Aurelia development through the verified PayPal checkout:
+https://www.paypal.com/qrcodes/managed/c9c78910-7802-4090-9c34-a0ac2ef55026?utm_source=aurelia_showcase
+
 For pilot or development-support inquiries:
 `legacycreator@protonmail.com`
 
