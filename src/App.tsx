@@ -93,7 +93,7 @@ function App() {
         </div>
         <div className="deviceStage" aria-label="Aurelia mobile interface preview">
           <img
-            src="/aurelia-mobile-redesign-final.png"
+            src="./aurelia-mobile-redesign-final.png"
             alt="Aurelia Mobile minimal agent interface"
             className="phoneShot"
           />
