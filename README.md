@@ -39,6 +39,10 @@ If visible, safety-first autonomy is useful to you:
   planning work as one supervised system.
 - **Auditable learning:** results and failures can become safer reusable flows
   only after verification.
+- **Bound approvals:** short-lived, single-use SHA-256 digests bind visible
+  approval to the exact action preview and parameters.
+- **Uncertain-outcome safety:** if execution may have happened but cannot be
+  verified, Aurelia reports `outcome_unknown` and blocks automatic retries.
 
 ## Safety model
 

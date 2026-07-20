@@ -37,7 +37,7 @@ const capabilities = [
   {
     icon: <ShieldCheck />,
     title: "Local Safety Gates",
-    text: "Aurelia blocks sensitive final actions and keeps the user as verifier for payments, account changes, final sends, and private data."
+    text: "Aurelia binds visible approvals to immutable action previews, blocks changed or replayed parameters, and keeps sensitive final actions human-controlled."
   }
 ];
 
@@ -45,6 +45,7 @@ const timeline = [
   "Receive intention from phone, voice, cursor chat, or PC relay.",
   "Observe the active screen and classify risk before touching anything.",
   "Build a bounded action plan with visual checks and rollback notes.",
+  "Bind approval to the exact preview with a short-lived, single-use digest.",
   "Execute low-risk reversible steps visibly through Android or PC controls.",
   "Record result, failure reason, and the next safe action."
 ];
@@ -152,11 +153,11 @@ function App() {
           </div>
           <div>
             <Fingerprint />
-            <span>Local validators check risk, active app, visible state, and expected result.</span>
+            <span>Short-lived SHA-256 approval digests bind consent to the exact visible action and parameters.</span>
           </div>
           <div>
             <Activity />
-            <span>Each action can be logged with before/after evidence and failure reason.</span>
+            <span>Unverified outcomes stop as outcome unknown, block automatic retries, and require observation.</span>
           </div>
         </div>
       </section>
