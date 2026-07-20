@@ -157,7 +157,7 @@ function App() {
           </div>
           <div>
             <Activity />
-            <span>Unverified outcomes stop as outcome unknown, block automatic retries, and require observation.</span>
+            <span>Unverified outcomes stop as <code>outcome_unknown</code>, block automatic retries, and require observation.</span>
           </div>
         </div>
       </section>
