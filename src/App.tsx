@@ -10,11 +10,13 @@ import {
   HandCoins,
   HeartHandshake,
   LockKeyhole,
+  MapPin,
   MessageSquareText,
   MousePointer2,
   PlayCircle,
   Radio,
   Route,
+  Search,
   ShieldCheck,
   Smartphone,
   Workflow
@@ -116,6 +118,62 @@ const feedbackLinks = [
   }
 ];
 
+const sandboxMessages = [
+  {
+    author: "Maya",
+    text: "I can meet at 458 Harbor Ave at 3:20 PM. The reference code is 742918."
+  },
+  {
+    author: "Rafael",
+    text: "Use entrance B near Bay 12. If asked, mention pickup group 3056."
+  },
+  {
+    author: "Aurelia",
+    text: "I found 4 numeric references and 1 address. I will highlight them and stop."
+  }
+];
+
+const sandboxMatches = [
+  "458 Harbor Ave",
+  "3:20 PM",
+  "742918",
+  "12",
+  "3056"
+];
+
+const sandboxTimeline = [
+  {
+    label: "Before",
+    text: "Dummy conversation loaded; no private account, email, phone, or payment data visible."
+  },
+  {
+    label: "Action",
+    text: "Aurelia scans the visible text, marks numbers and addresses, and keeps the cursor on the active target."
+  },
+  {
+    label: "After",
+    text: "Matches stay highlighted and the next step is user review, not an automatic final action."
+  }
+];
+
+function highlightSandboxText(text: string) {
+  const pattern = new RegExp(`(${sandboxMatches.map((match) => match.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`, "g");
+  const parts = text.split(pattern);
+
+  return parts.map((part, index) =>
+    sandboxMatches.includes(part) ? (
+      <mark
+        className={`matchToken matchToken${sandboxMatches.indexOf(part) + 1}`}
+        key={`${part}-${index}`}
+      >
+        {part}
+      </mark>
+    ) : (
+      <span key={`${part}-${index}`}>{part}</span>
+    )
+  );
+}
+
 function App() {
   return (
     <main>
@@ -191,6 +249,73 @@ function App() {
               <p>{item}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="sandbox" id="sandbox">
+        <div className="sectionHeader">
+          <p className="eyebrow">Local demo sandbox</p>
+          <h2>Practice on dummy data before recording</h2>
+          <p>
+            This screen is made for the safe demo draft. It shows the exact
+            behavior Aurelia should demonstrate: understand the current surface,
+            point with the cursor, highlight useful entities, and stop with a
+            verified timeline.
+          </p>
+        </div>
+        <div className="liveDemoRail" aria-label="Aurelia animated demo status">
+          <span>Live loop</span>
+          <div className="liveProgress" aria-hidden="true">
+            <i />
+          </div>
+          <strong>Intent {">"} scan {">"} point {">"} verify {">"} safe stop</strong>
+        </div>
+        <div className="sandboxStage" aria-label="Aurelia demo sandbox with dummy conversation">
+          <div className="sandboxPhone">
+            <div className="sandboxTopbar">
+              <span>Demo Messages</span>
+              <Search aria-hidden="true" />
+            </div>
+            <div className="sandboxIntent">
+              <MousePointer2 aria-hidden="true" />
+              <span>AURELIA busca codigos numericos</span>
+            </div>
+            <div className="messageList">
+              {sandboxMessages.map((message) => (
+                <article className={message.author === "Aurelia" ? "message aureliaMessage" : "message"} key={message.text}>
+                  <strong>{message.author}</strong>
+                  <p>{highlightSandboxText(message.text)}</p>
+                </article>
+              ))}
+            </div>
+            <div className="sandboxCursor" aria-label="Aurelia cursor pointing at highlighted match">
+              <MousePointer2 aria-hidden="true" />
+            </div>
+          </div>
+            <div className="sandboxPanel">
+              <div className="entitySummary">
+              <div className="entityCard entityCard1">
+                <Search aria-hidden="true" />
+                <span>5 matches found</span>
+              </div>
+              <div className="entityCard entityCard2">
+                <MapPin aria-hidden="true" />
+                <span>1 address candidate</span>
+              </div>
+              <div className="entityCard entityCard3">
+                <ShieldCheck aria-hidden="true" />
+                <span>Safe stop before external action</span>
+              </div>
+            </div>
+            <div className="timelinePanel">
+              {sandboxTimeline.map((item, index) => (
+                <article className={`timelineStep timelineStep${index + 1}`} key={item.label}>
+                  <span>{item.label}</span>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

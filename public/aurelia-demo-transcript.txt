@@ -1,0 +1,23 @@
+Aurelia 60-second demo draft transcript
+
+0-5s:
+Aurelia is a local-first supervised automation agent.
+
+5-12s:
+The user enters: AURELIA busca codigos numericos.
+
+12-25s:
+Aurelia observes the active demo conversation and moves the visible cursor toward the active area.
+
+25-40s:
+Aurelia highlights dummy numeric references and one dummy address in sequence:
+458 Harbor Ave, 3:20 PM, 742918, 12, 3056.
+
+40-52s:
+The visible timeline animates Before, Action, and After.
+
+52-60s:
+Aurelia stops before any external action and reports a verified safe review state.
+
+Safety note:
+This demo uses fictitious data only. It does not show private chats, emails, payment data, credentials, 2FA, medical information, or real user records.
