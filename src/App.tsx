@@ -4,11 +4,15 @@ import {
   BriefcaseBusiness,
   CheckCircle2,
   Eye,
+  FileText,
   Fingerprint,
+  Github,
   HandCoins,
   HeartHandshake,
   LockKeyhole,
+  MessageSquareText,
   MousePointer2,
+  PlayCircle,
   Radio,
   Route,
   ShieldCheck,
@@ -50,6 +54,29 @@ const timeline = [
   "Record result, failure reason, and the next safe action."
 ];
 
+const demoMoments = [
+  {
+    label: "0-10s",
+    title: "Intent",
+    text: "The user writes a plain request: find numbers, summarize a page, capture a screenshot, or start a known workflow."
+  },
+  {
+    label: "10-30s",
+    title: "Visible Plan",
+    text: "Aurelia identifies the active app, shows the next action through the cursor, and explains what it is about to try."
+  },
+  {
+    label: "30-50s",
+    title: "Action",
+    text: "Only low-risk reversible steps run automatically, with before/after evidence and a stop point for human decisions."
+  },
+  {
+    label: "50-60s",
+    title: "Verified",
+    text: "The timeline records success, failure, or the next safe repair step so the user and developer can keep improving the flow."
+  }
+];
+
 const supportPaths = [
   {
     icon: <HeartHandshake />,
@@ -65,6 +92,27 @@ const supportPaths = [
     icon: <HandCoins />,
     title: "Pilot partnerships",
     text: "Support focused pilots for small businesses that need visible Android/PC task automation with human validation."
+  }
+];
+
+const feedbackLinks = [
+  {
+    icon: <Github />,
+    title: "GitHub",
+    text: "Open issues, ideas, and implementation discussions for the public showcase.",
+    href: "https://github.com/davidpeguero27/aurelia-synapsis-showcase/issues"
+  },
+  {
+    icon: <MessageSquareText />,
+    title: "Feedback",
+    text: "Share pilot ideas, usability blockers, or workflows that should become verified playbooks.",
+    href: "mailto:legacycreator@protonmail.com?subject=Aurelia%20feedback"
+  },
+  {
+    icon: <FileText />,
+    title: "Trust docs",
+    text: "Read the local-first privacy model and security boundaries before trying a pilot.",
+    href: "https://github.com/davidpeguero27/aurelia-synapsis-showcase"
   }
 ];
 
@@ -109,6 +157,32 @@ function App() {
         <div className="sectionHeader">
           <p className="eyebrow">How it works</p>
           <h2>Intent in, verified action out</h2>
+          <p>
+            The 60-second demo story is simple: Aurelia receives one intention,
+            points at the next visible step, acts only inside safe limits, and
+            leaves a verification trail the user can inspect.
+          </p>
+        </div>
+        <div className="demoStrip" aria-label="Aurelia 60 second demo outline">
+          <div className="demoLead">
+            <PlayCircle aria-hidden="true" />
+            <div>
+              <h3>60-second demo script</h3>
+              <p>
+                Show the cursor above another app, send one intention, execute
+                one reversible action, then display the verified timeline.
+              </p>
+            </div>
+          </div>
+          <div className="demoMoments">
+            {demoMoments.map((moment) => (
+              <article key={moment.label}>
+                <span>{moment.label}</span>
+                <h3>{moment.title}</h3>
+                <p>{moment.text}</p>
+              </article>
+            ))}
+          </div>
         </div>
         <div className="flowGrid">
           {timeline.map((item, index) => (
@@ -116,6 +190,27 @@ function App() {
               <span>{String(index + 1).padStart(2, "0")}</span>
               <p>{item}</p>
             </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="feedback" id="feedback">
+        <div className="sectionHeader">
+          <p className="eyebrow">Feedback loop</p>
+          <h2>Turn outside feedback into verified development work</h2>
+          <p>
+            Aurelia tracks real comments, pilot requests, and public mentions as
+            structured intake. Useful feedback becomes a candidate task with a
+            testable acceptance check before it is promoted into the roadmap.
+          </p>
+        </div>
+        <div className="feedbackGrid">
+          {feedbackLinks.map((link) => (
+            <a className="feedbackCard" href={link.href} target="_blank" rel="noreferrer" key={link.title}>
+              <div className="iconWrap">{link.icon}</div>
+              <h3>{link.title}</h3>
+              <p>{link.text}</p>
+            </a>
           ))}
         </div>
       </section>
@@ -229,6 +324,16 @@ function App() {
           </div>
         </div>
       </section>
+
+      <footer className="siteFooter">
+        <span>Aurelia private alpha</span>
+        <nav aria-label="Project links">
+          <a href="https://github.com/davidpeguero27/aurelia-synapsis-showcase">GitHub</a>
+          <a href="https://github.com/davidpeguero27/aurelia-synapsis-showcase/blob/main/PRIVACY.md">Privacy</a>
+          <a href="https://github.com/davidpeguero27/aurelia-synapsis-showcase/blob/main/SECURITY.md">Security</a>
+          <a href="mailto:legacycreator@protonmail.com?subject=Aurelia%20pilot">Contact</a>
+        </nav>
+      </footer>
     </main>
   );
 }

@@ -160,6 +160,7 @@ h3 {
 
 .band,
 .capabilities,
+.feedback,
 .split,
 .stack,
 .support {
@@ -176,6 +177,63 @@ h3 {
   color: var(--muted);
   font-size: 18px;
   line-height: 1.6;
+}
+
+.demoStrip {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.demoLead {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 16px;
+  align-items: start;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-2);
+  padding: 20px;
+}
+
+.demoLead svg {
+  width: 32px;
+  height: 32px;
+  color: var(--accent);
+}
+
+.demoLead h3,
+.demoLead p {
+  margin-bottom: 6px;
+}
+
+.demoLead p,
+.demoMoments p,
+.feedbackCard p {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.demoMoments {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.demoMoments article,
+.feedbackCard {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  padding: 18px;
+}
+
+.demoMoments span {
+  display: inline-flex;
+  margin-bottom: 18px;
+  color: var(--accent-2);
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .flowGrid {
@@ -292,6 +350,26 @@ h3 {
   border-top: 1px solid var(--line);
 }
 
+.feedback {
+  border-top: 1px solid var(--line);
+}
+
+.feedbackGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.feedbackCard {
+  display: block;
+  min-height: 230px;
+}
+
+.feedbackCard:hover,
+.secondaryAction:hover {
+  border-color: rgba(132, 185, 255, 0.68);
+}
+
 .supportGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -340,6 +418,29 @@ h3 {
   border-radius: 8px;
 }
 
+.siteFooter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px clamp(24px, 5vw, 80px);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.siteFooter nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.siteFooter a {
+  color: var(--text);
+  font-weight: 700;
+}
+
 @media (max-width: 920px) {
   .hero,
   .split {
@@ -355,7 +456,9 @@ h3 {
   }
 
   .flowGrid,
+  .demoMoments,
   .capabilityGrid,
+  .feedbackGrid,
   .supportGrid,
   .stackGrid {
     grid-template-columns: 1fr;
@@ -381,6 +484,7 @@ h3 {
   .hero,
   .band,
   .capabilities,
+  .feedback,
   .split,
   .stack,
   .support {
