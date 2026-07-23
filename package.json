@@ -6,7 +6,8 @@
     "build": "node scripts/build-site.mjs",
     "build:pages": "vite build",
     "dev": "vite --host 127.0.0.1",
-    "start": "vite preview --host 127.0.0.1"
+    "start": "vite preview --host 127.0.0.1",
+    "test": "node scripts/validate-showcase-content.mjs"
   },
   "dependencies": {
     "react": "19.2.4",

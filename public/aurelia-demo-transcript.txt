@@ -14,10 +14,10 @@ Aurelia highlights dummy numeric references and one dummy address in sequence:
 458 Harbor Ave, 3:20 PM, 742918, 12, 3056.
 
 40-52s:
-The visible timeline animates Before, Action, and After.
+The visible timeline animates Before, Action, and After with the exact stop state outcome_unknown.
 
 52-60s:
-Aurelia stops before any external action and reports a verified safe review state.
+Aurelia stops before any external action. If the outcome cannot be verified, Aurelia reports outcome_unknown and blocks automatic retries.
 
 Safety note:
 This demo uses fictitious data only. It does not show private chats, emails, payment data, credentials, 2FA, medical information, or real user records.

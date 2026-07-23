@@ -24,6 +24,8 @@ import {
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
+const OUTCOME_UNKNOWN_STATE = "outcome_unknown";
+
 const capabilities = [
   {
     icon: <MousePointer2 />,
@@ -152,7 +154,7 @@ const sandboxTimeline = [
   },
   {
     label: "After",
-    text: "Matches stay highlighted and the next step is user review, not an automatic final action."
+    text: `Matches stay highlighted and the next step is user review. If Aurelia cannot verify the result, it reports ${OUTCOME_UNKNOWN_STATE} and blocks automatic retries.`
   }
 ];
 
@@ -268,7 +270,7 @@ function App() {
           <div className="liveProgress" aria-hidden="true">
             <i />
           </div>
-          <strong>Intent {">"} scan {">"} point {">"} verify {">"} safe stop</strong>
+          <strong>Intent {">"} scan {">"} point {">"} verify {">"} {OUTCOME_UNKNOWN_STATE}</strong>
         </div>
         <div className="sandboxStage" aria-label="Aurelia demo sandbox with dummy conversation">
           <div className="sandboxPhone">
@@ -304,7 +306,7 @@ function App() {
               </div>
               <div className="entityCard entityCard3">
                 <ShieldCheck aria-hidden="true" />
-                <span>Safe stop before external action</span>
+                <span>Stop state: <code>{OUTCOME_UNKNOWN_STATE}</code></span>
               </div>
             </div>
             <div className="timelinePanel">
